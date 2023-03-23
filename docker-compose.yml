@@ -1,0 +1,22 @@
+version: "3.7"
+
+services:
+  mongo:
+    container_name: db-servico-pedidos
+    image: mongo:latest
+    ports:
+      - "27018:27017"
+    environment:
+      MONGO_INITDB_DATABASE: pedidos
+      MONGO_INITDB_ROOT_USERNAME: sa_servico_pedidos
+      MONGO_INITDB_ROOT_PASSWORD: sa_servico_pedidos
+    networks:
+      - default
+
+volumes:
+  data-mongo:
+    driver: local
+
+networks:
+  default:
+    driver: bridge

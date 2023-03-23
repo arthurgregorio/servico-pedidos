@@ -1,0 +1,12 @@
+spring:
+  data:
+    mongodb:
+      uri: mongodb://sa_servico_pedidos:sa_servico_pedidos@localhost:27018
+      database: pedidos
+      uuid-representation: standard
+      authentication-database: admin
+
+logging:
+  level:
+    org.springframework.web: INFO
+    org.springframework.security: INFO

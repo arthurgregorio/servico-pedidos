@@ -1,0 +1,29 @@
+spring:
+  application.name: dual-write-demo
+  jmx.enabled: false
+
+  jackson:
+    default-property-inclusion: non_null
+    deserialization:
+      read_unknown_enum_values_as_null: true
+
+server:
+  port: 8085
+  servlet:
+    encoding:
+      force: true
+
+mongock:
+  migration-scan-package:
+    - br.eti.arthurgregorio.servicopedidos.infrastructure.migrations
+  transactionEnabled: false
+
+logging:
+  file:
+    name: /${user.home}/${spring.application.name}/${spring.application.name}.log
+  level:
+    root: INFO
+    org.springframework: INFO
+    org.springframework.web: INFO
+    org.springframework.security: INFO
+    org.springframework.context.support: INFO
