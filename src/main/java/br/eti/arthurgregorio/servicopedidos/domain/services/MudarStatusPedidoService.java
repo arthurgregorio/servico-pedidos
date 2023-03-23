@@ -11,8 +11,6 @@ public class MudarStatusPedidoService {
 
     private final PedidoRepository pedidoRepository;
 
-    private final PublicaEventosDoPedidoService publicaEventosDoPedidoService;
-
     public void aguardarSeparacao(Pedido pedido) {
         pedidoRepository.updateStatus(pedido.getId(), Pedido.Status.AGUARDANDO_SEPARACAO);
     }
