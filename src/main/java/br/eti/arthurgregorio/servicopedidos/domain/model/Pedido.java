@@ -1,6 +1,7 @@
 package br.eti.arthurgregorio.servicopedidos.domain.model;
 
 import lombok.Getter;
+import lombok.Setter;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
@@ -22,6 +23,9 @@ public class Pedido {
 
     private Status statusAtual;
 
+    @Setter
+    private Outbox outbox;
+
     public Pedido(UUID id, String nomeCliente, UUID rastreio, Status statusAtual, Set<ItemPedido> itemsPedido) {
         this.id = id;
         this.nomeCliente = nomeCliente;
@@ -30,11 +34,18 @@ public class Pedido {
         this.itemsPedido = itemsPedido;
     }
 
+    public void aguardarEnvio() {
+        this.statusAtual = Status.AGUARDANDO_ENVIO;
+    }
+
     public enum Status {
         AGUARDANDO_PAGAMENTO, // ordem recebida pelo sistema, aguardando pagamento
         AGUARDANDO_ENVIO, // intermediario entre pagamento e envio
         ENVIADO, // enviada ao cliente
         AGUARDANDO_SEPARACAO, // aguardando a separacao no stoque
         FINALIZADO // apos confirmacao de recebimento do cliente
+    }
+
+    public record Outbox(UUID idPedido, String nomeCliente, Set<ItemPedido> itemsPedido) {
     }
 }

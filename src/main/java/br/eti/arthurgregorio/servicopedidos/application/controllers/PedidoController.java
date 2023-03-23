@@ -2,10 +2,10 @@ package br.eti.arthurgregorio.servicopedidos.application.controllers;
 
 import br.eti.arthurgregorio.servicopedidos.application.dto.PedidoRequest;
 import br.eti.arthurgregorio.servicopedidos.application.dto.PedidoView;
-import br.eti.arthurgregorio.servicopedidos.infrastructure.repositories.PedidoRepository;
 import br.eti.arthurgregorio.servicopedidos.domain.exceptions.PedidoNaoEncontradoException;
 import br.eti.arthurgregorio.servicopedidos.domain.services.CriarPedidoService;
 import br.eti.arthurgregorio.servicopedidos.domain.services.MudarStatusPedidoService;
+import br.eti.arthurgregorio.servicopedidos.infrastructure.repositories.PedidoRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
