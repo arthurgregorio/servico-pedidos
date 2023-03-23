@@ -57,7 +57,7 @@ public class PedidoController {
         final var pedido = pedidoRepository.findById(id)
                 .orElseThrow(() -> new PedidoNaoEncontradoException(id));
 
-        mudarStatusPedidoService.aguardarEnvioComOutbox(pedido);
+        mudarStatusPedidoService.aguardarEnvio(pedido);
 
         return ResponseEntity.accepted().build();
     }
