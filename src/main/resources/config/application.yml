@@ -1,5 +1,5 @@
 spring:
-  application.name: dual-write-demo
+  application.name: servico-pedidos
   jmx.enabled: false
 
   jackson:
