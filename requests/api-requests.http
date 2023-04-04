@@ -1,0 +1,31 @@
+### cria um novo pedido
+POST http://localhost:8085/api/pedidos
+Content-Type: application/json
+
+{
+  "nomeCliente": "Algum cliente",
+  "itemsPedido": [
+    {
+      "descricao": "Item #1",
+      "quantidade": 1
+    },
+    {
+      "descricao": "Item #2",
+      "quantidade": 2
+    },
+    {
+      "descricao": "Item #3",
+      "quantidade": 3
+    }
+  ]
+}
+
+<> 2023-04-03T233228.201.json
+
+### busca um pedido criado anteriormente
+GET http://localhost:8085/api/pedidos/ea844616-b8af-4f2e-9b04-2373ef8c507c
+
+<> 2023-04-03T233346.200.json
+
+### altera um pedido para aguardando envio
+PATCH http://localhost:8085/api/pedidos/ea844616-b8af-4f2e-9b04-2373ef8c507c/separacao-finalizada
